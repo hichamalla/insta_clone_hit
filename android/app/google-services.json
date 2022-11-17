@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "531522870113",
+    "project_id": "instant-clone-tets",
+    "storage_bucket": "instant-clone-tets.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:531522870113:android:18cb4fc5aa7748835e4320",
+        "android_client_info": {
+          "package_name": "com.example.insta_clone_hit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "531522870113-9ka736onh1rqit99nkms9fjsfv14psgi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnH2Rml1y_lZ4HeRjzLMishHXR2NW43h4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "531522870113-9ka736onh1rqit99nkms9fjsfv14psgi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
