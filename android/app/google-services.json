@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "531522870113",
-    "project_id": "instant-clone-tets",
-    "storage_bucket": "instant-clone-tets.appspot.com"
+    "project_number": "521952438633",
+    "project_id": "flutter-instant-sharing",
+    "storage_bucket": "flutter-instant-sharing.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:531522870113:android:18cb4fc5aa7748835e4320",
+        "mobilesdk_app_id": "1:521952438633:android:c37f8364e728baef3535f8",
         "android_client_info": {
-          "package_name": "com.example.insta_clone_hit"
+          "package_name": "hit.allalou.insta_clone_hit"
         }
       },
       "oauth_client": [
         {
-          "client_id": "531522870113-9ka736onh1rqit99nkms9fjsfv14psgi.apps.googleusercontent.com",
+          "client_id": "521952438633-e4tkeb14tbgjisade14e55cr08cd6ksa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "hit.allalou.insta_clone_hit",
+            "certificate_hash": "c6093c546eb2942ad57a372d289bf7601b8599fc"
+          }
+        },
+        {
+          "client_id": "521952438633-0q3drmv3lj0je79fq60qq4uo925uau7f.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBnH2Rml1y_lZ4HeRjzLMishHXR2NW43h4"
+          "current_key": "AIzaSyDheEmmGr3Yc24oxHl4a-tIA7JxW1XdKWk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "531522870113-9ka736onh1rqit99nkms9fjsfv14psgi.apps.googleusercontent.com",
+              "client_id": "521952438633-0q3drmv3lj0je79fq60qq4uo925uau7f.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -1,11 +1,19 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:insta_clone_hit/state/auth/backend/authenticator.dart';
 import 'firebase_options.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+
 
 void main() async {
+  
   WidgetsFlutterBinding.ensureInitialized();
+  
   await Firebase.initializeApp(
+     name: 'name-here',
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
@@ -34,11 +42,36 @@ class MyApp extends StatelessWidget {
   }
 }
 
+GoogleSignIn _googleSignIn = GoogleSignIn(
+  scopes: [
+    'email',
+    'https://www.googleapis.com/auth/contacts.readonly',
+  ],
+);
+
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SafeArea(
+      child: Column(
+        children: [
+          TextButton(
+              onPressed: () async {
+                final res = await Authenticator().loginWithGoogle();
+                res.log();
+              },
+              child: Text("google sign in")),
+          TextButton(
+            child: Text('click'),
+            onPressed: () async {
+               final res = await Authenticator().loginWithFacebook();
+                res.log();
+            },
+          ),
+        ],
+      ),
+    );
   }
 }
