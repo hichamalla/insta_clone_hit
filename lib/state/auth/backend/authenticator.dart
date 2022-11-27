@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/rendering.dart';
+
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:insta_clone_hit/state/auth/constants/constants.dart';
@@ -12,6 +12,8 @@ extension Log on Object {
 }
 
 class Authenticator {
+  const Authenticator();
+
   UserId? get userId => FirebaseAuth.instance.currentUser?.uid;
   bool get isAlreadyLoggedIn => userId != null;
   String get displayName =>
@@ -31,7 +33,7 @@ class Authenticator {
       return AuthResult.aborted;
     }
     final ouathCredential = FacebookAuthProvider.credential(token);
-   
+
     try {
       await FirebaseAuth.instance.signInWithCredential(
         ouathCredential,
@@ -55,7 +57,7 @@ class Authenticator {
     return AuthResult.success;
   }
 
-  Future<AuthResult> loginWithGoogle() async {
+  Future<AuthResult> loginWithGoogle() async { 
     final GoogleSignIn googleSignIn = GoogleSignIn(
       scopes: [Constatnts.emailScope],
     );
