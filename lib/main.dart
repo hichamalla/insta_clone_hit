@@ -6,6 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:insta_clone_hit/state/auth/backend/authenticator.dart';
 import 'package:insta_clone_hit/state/auth/providers/auth_state_provider.dart';
 import 'package:insta_clone_hit/state/auth/providers/is_logged_in_provider.dart';
+import 'package:insta_clone_hit/state/providers/is_loading_provider.dart';
 import 'package:insta_clone_hit/views/components/loading/loading_screen.dart';
 import 'firebase_options.dart';
 
@@ -39,6 +40,17 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: Consumer(
           builder: (context, ref, child) {
+            ref.listen<bool>(isLoadingProvider, (_, isLoading) {
+              if (isLoading) {
+                // isLoading.log();
+                LoadingScreen.instance()
+                    .show(context: context, text: 'Loading...');
+                    
+              } else {
+                  // isLoading.log();
+                LoadingScreen.instance().hide();
+              }
+            });
             var isloggedin = ref.watch(loggedInProvider);
             if (isloggedin)
               return MainView();
@@ -62,9 +74,9 @@ class MainView extends StatelessWidget {
           builder: (_, ref, child) {
             return TextButton(
                 onPressed: () async {
-                  // await ref.watch(authStateProvider.notifier).logOut();
-                  LoadingScreen.instance()
-                      .show(context: context, text: 'Loading...');
+                  await ref.watch(authStateProvider.notifier).logOut();
+                  // LoadingScreen.instance()
+                  //     .show(context: context, text: 'Loading...');
                 },
                 child: Text('Loggout'));
           },
