@@ -6,7 +6,7 @@ import 'package:insta_clone_hit/views/components/rich_text/base_text.dart';
 @immutable
 class LinkText extends BaseText {
   final VoidCallback onTapped;
-   LinkText({
+   const LinkText({
     required this.onTapped,
     required super.text,
     super.style,

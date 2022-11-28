@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_clone_hit/views/components/constants/string.dart';
 import 'package:insta_clone_hit/views/components/loading/loading_screen_controller.dart';
@@ -59,7 +58,7 @@ class LoadingScreen {
                 borderRadius: BorderRadius.circular(20.0),
               ),
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,

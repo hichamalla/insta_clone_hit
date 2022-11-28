@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:insta_clone_hit/state/auth/backend/authenticator.dart';
 import 'package:insta_clone_hit/state/auth/providers/auth_state_provider.dart';
 import 'package:insta_clone_hit/state/auth/providers/is_logged_in_provider.dart';
 import 'package:insta_clone_hit/state/providers/is_loading_provider.dart';
@@ -52,10 +51,11 @@ class MyApp extends StatelessWidget {
               }
             });
             var isloggedin = ref.watch(loggedInProvider);
-            if (isloggedin)
-              return MainView();
-            else
-              return LoginView();
+            if (isloggedin) {
+              return const MainView();
+            } else {
+              return const LoginView();
+            }
           },
         )
         //  const LoginView(),
@@ -69,7 +69,7 @@ class MainView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('')),
+        appBar: AppBar(title: const Text('')),
         body: Consumer(
           builder: (_, ref, child) {
             return TextButton(
@@ -78,7 +78,7 @@ class MainView extends StatelessWidget {
                   // LoadingScreen.instance()
                   //     .show(context: context, text: 'Loading...');
                 },
-                child: Text('Loggout'));
+                child: const Text('Loggout'));
           },
         ));
   }
@@ -91,7 +91,7 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Login view'),
+          title: const Text('Login view'),
         ),
         body: Consumer(
           builder: (context, ref, child) {
