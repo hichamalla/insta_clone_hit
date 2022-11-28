@@ -1,0 +1,38 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+
+import 'package:insta_clone_hit/views/components/rich_text/base_text.dart';
+import 'package:insta_clone_hit/views/components/rich_text/link_text.dart';
+
+class RichTextWidget extends StatelessWidget {
+  final Iterable<BaseText> texts;
+  final TextStyle? styleforAll;
+
+  const RichTextWidget({
+    super.key,
+    required this.texts,
+    this.styleforAll,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return RichText(
+      text: TextSpan(
+          children: texts.map((baseText) {
+        if (baseText is LinkText) {
+          return TextSpan(
+            text: baseText.text,
+            style: styleforAll?.merge(baseText.style),
+            recognizer: TapGestureRecognizer()..onTap = baseText.onTapped,
+          );
+        } else {
+          return TextSpan(
+            text: baseText.text,
+            style: styleforAll?.merge(baseText.style),
+          );
+        }
+      }).toList()),
+    );
+  }
+}
