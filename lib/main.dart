@@ -8,6 +8,7 @@ import 'package:insta_clone_hit/state/auth/providers/is_logged_in_provider.dart'
 import 'package:insta_clone_hit/state/providers/is_loading_provider.dart';
 import 'package:insta_clone_hit/views/components/loading/loading_screen.dart';
 import 'firebase_options.dart';
+import 'views/login/login_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -54,7 +55,7 @@ class MyApp extends StatelessWidget {
             if (isloggedin) {
               return const MainView();
             } else {
-              return const LoginView();
+              return const LoginWidget();
             }
           },
         )
@@ -99,7 +100,8 @@ class LoginView extends StatelessWidget {
               children: [
                 TextButton(
                     onPressed: () async {
-                      final res = await ref
+                      // final res =
+                       await ref
                           .watch(authStateProvider.notifier)
                           .logginWithGoogle();
                       // res.log();
@@ -108,7 +110,8 @@ class LoginView extends StatelessWidget {
                 TextButton(
                   child: const Text('click'),
                   onPressed: () async {
-                    final res = await ref
+                    // final res = 
+                    await ref
                         .watch(authStateProvider.notifier)
                         .logginWithFacebook();
                     // res.log();
