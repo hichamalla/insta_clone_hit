@@ -62,8 +62,8 @@ class LoginWidget extends ConsumerWidget {
                   onPressed:
                       ref.watch(authStateProvider.notifier).logginWithGoogle,
                   child: const GoogleButton()),
-              DividerWithWidget(), 
-              LoginViewSginupLinks()
+              const DividerWithWidget(), 
+              const LoginViewSginupLinks()
             ],
           ),
         ),

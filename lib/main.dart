@@ -75,7 +75,7 @@ class MainView extends StatelessWidget {
           builder: (_, ref, child) {
             return Column(
               children: [
-                DataNotFoundAnimationView(), 
+                const DataNotFoundAnimationView(), 
                 TextButton(
                     onPressed: () async {
                       await ref.watch(authStateProvider.notifier).logOut();
