@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/foundation.dart' show VoidCallback, immutable;
 import 'package:flutter/material.dart' show TextStyle, Colors, TextDecoration;
-import 'package:insta_clone_hit/views/components/rich_text/link_text.dart';
+import 'package:insta_clone_hit/views/rich_text/link_text.dart';
 
 @immutable
 class BaseText {
