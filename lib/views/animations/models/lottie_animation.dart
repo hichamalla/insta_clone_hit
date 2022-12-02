@@ -1,4 +1,4 @@
-enum LottiAnimation {
+enum LottieAnimation {
   dataNotFound(name: 'data_not_found'),
   empty(name: 'data_not_found'),
   loading(name: 'loading'),
@@ -6,6 +6,6 @@ enum LottiAnimation {
   smallError(name: 'small_error');
 
   final String name;
-  const LottiAnimation({required this.name});
+  const LottieAnimation({required this.name});
 }
  

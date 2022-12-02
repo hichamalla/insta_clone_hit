@@ -6,6 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:insta_clone_hit/state/auth/providers/auth_state_provider.dart';
 import 'package:insta_clone_hit/state/auth/providers/is_logged_in_provider.dart';
 import 'package:insta_clone_hit/state/providers/is_loading_provider.dart';
+import 'package:insta_clone_hit/views/animations/data_not_found_animation_view.dart';
 import 'package:insta_clone_hit/views/components/loading/loading_screen.dart';
 import 'firebase_options.dart';
 import 'views/login/login_view.dart';
@@ -45,9 +46,8 @@ class MyApp extends StatelessWidget {
                 // isLoading.log();
                 LoadingScreen.instance()
                     .show(context: context, text: 'Loading...');
-                    
               } else {
-                  // isLoading.log();
+                // isLoading.log();
                 LoadingScreen.instance().hide();
               }
             });
@@ -73,13 +73,18 @@ class MainView extends StatelessWidget {
         appBar: AppBar(title: const Text('')),
         body: Consumer(
           builder: (_, ref, child) {
-            return TextButton(
-                onPressed: () async {
-                  await ref.watch(authStateProvider.notifier).logOut();
-                  // LoadingScreen.instance()
-                  //     .show(context: context, text: 'Loading...');
-                },
-                child: const Text('Loggout'));
+            return Column(
+              children: [
+                DataNotFoundAnimationView(), 
+                TextButton(
+                    onPressed: () async {
+                      await ref.watch(authStateProvider.notifier).logOut();
+                      // LoadingScreen.instance()
+                      //     .show(context: context, text: 'Loading...');
+                    },
+                    child: const Text('Loggout')),
+              ],
+            );
           },
         ));
   }
@@ -101,7 +106,7 @@ class LoginView extends StatelessWidget {
                 TextButton(
                     onPressed: () async {
                       // final res =
-                       await ref
+                      await ref
                           .watch(authStateProvider.notifier)
                           .logginWithGoogle();
                       // res.log();
@@ -110,7 +115,7 @@ class LoginView extends StatelessWidget {
                 TextButton(
                   child: const Text('click'),
                   onPressed: () async {
-                    // final res = 
+                    // final res =
                     await ref
                         .watch(authStateProvider.notifier)
                         .logginWithFacebook();
