@@ -3,13 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:insta_clone_hit/state/auth/providers/auth_state_provider.dart';
 import 'package:insta_clone_hit/state/auth/providers/is_logged_in_provider.dart';
 import 'package:insta_clone_hit/state/providers/is_loading_provider.dart';
-import 'package:insta_clone_hit/views/animations/data_not_found_animation_view.dart';
 import 'package:insta_clone_hit/views/components/loading/loading_screen.dart';
 import 'firebase_options.dart';
 import 'views/login/login_view.dart';
+import 'views/main/main_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -64,67 +63,4 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MainView extends StatelessWidget {
-  const MainView({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(title: const Text('')),
-        body: Consumer(
-          builder: (_, ref, child) {
-            return Column(
-              children: [
-                const DataNotFoundAnimationView(), 
-                TextButton(
-                    onPressed: () async {
-                      await ref.watch(authStateProvider.notifier).logOut();
-                      // LoadingScreen.instance()
-                      //     .show(context: context, text: 'Loading...');
-                    },
-                    child: const Text('Loggout')),
-              ],
-            );
-          },
-        ));
-  }
-}
-
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('Login view'),
-        ),
-        body: Consumer(
-          builder: (context, ref, child) {
-            return Column(
-              children: [
-                TextButton(
-                    onPressed: () async {
-                      // final res =
-                      await ref
-                          .watch(authStateProvider.notifier)
-                          .logginWithGoogle();
-                      // res.log();
-                    },
-                    child: const Text("google sign in")),
-                TextButton(
-                  child: const Text('click'),
-                  onPressed: () async {
-                    // final res =
-                    await ref
-                        .watch(authStateProvider.notifier)
-                        .logginWithFacebook();
-                    // res.log();
-                  },
-                ),
-              ],
-            );
-          },
-        ));
-  }
-}
